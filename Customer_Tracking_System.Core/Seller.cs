@@ -11,7 +11,7 @@ namespace Customer_Tracking_System.Core
         public string Name { get; set; }
         public string Surname { get; set; }
         public string? PhoneNumber { get; set; }
-        public int Point { get; set; }
+        public decimal Point { get; set; }
         public int PointNumber { get; set; }
         public int TransactionsNumber { get; set; } = 0;
         public string? ProfilePicture { get; set; }

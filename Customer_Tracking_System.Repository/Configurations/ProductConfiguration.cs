@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace Customer_Tracking_System.Repository.Configurations
 {
-    public class CustomerConfiguration : IEntityTypeConfiguration<Customer>
+    internal class ProductConfiguration : IEntityTypeConfiguration<Product>
     {
-        public void Configure(EntityTypeBuilder<Customer> builder)
+        public void Configure(EntityTypeBuilder<Product> builder)
         {
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id).UseIdentityColumn();
             builder.Property(x => x.Name).IsRequired().HasMaxLength(50);
-            builder.Property(x => x.Surname).IsRequired().HasMaxLength(50);
-            builder.Property(x => x.PhoneNumber).IsRequired().HasMaxLength(20);
-            builder.Property(x => x.City).IsRequired().HasMaxLength(30);
+            builder.Property(x => x.Interests).IsRequired().HasMaxLength(100);
+            
+            builder.HasOne(x => x.Seller).WithMany(x=> x.Product).HasForeignKey(x=>x.SellerId);
         }
     }
 }
