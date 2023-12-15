@@ -1,4 +1,4 @@
-﻿using Customer_Tracking_System.Core;
+﻿using Customer_Tracking_System.Core.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;

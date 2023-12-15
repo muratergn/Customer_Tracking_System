@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Customer_Tracking_System.Core
+namespace Customer_Tracking_System.Core.Models
 {
     public class CustomerInterests
     {

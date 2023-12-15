@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Customer_Tracking_System.Core
+namespace Customer_Tracking_System.Core.DTOs
 {
-    public class Customer : User
+    public class CustomerDto : BaseDto
     {
         public string Name { get; set; }
         public string Surname { get; set; }
@@ -15,8 +15,5 @@ namespace Customer_Tracking_System.Core
         public string City { get; set; }
         public int TransactionsNumber { get; set; } = 0;
         public string? ProfilePicture { get; set; }
-        public ICollection<CustomerInterests> Interest { get; set;}
-        public ICollection<ProductComment> ProductComments { get; set; }
-        public ICollection<Order> Order { get; set; }
     }
 }

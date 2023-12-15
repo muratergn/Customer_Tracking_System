@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Customer_Tracking_System.Core
+namespace Customer_Tracking_System.Core.DTOs
 {
-    public class UserData
+    public abstract class BaseDto
     {
         public int Id { get; set; }
-        public string UserName { get; set; }
         public string Email { get; set; }
     }
 }

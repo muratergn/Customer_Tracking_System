@@ -1,8 +1,11 @@
 using Customer_Tracking_System.Core.Repositories;
+using Customer_Tracking_System.Core.Services;
 using Customer_Tracking_System.Core.UnitOfWork;
 using Customer_Tracking_System.Repository;
 using Customer_Tracking_System.Repository.Repositories;
 using Customer_Tracking_System.Repository.UnitOfWorks;
+using Customer_Tracking_System.Service.Mapping;
+using Customer_Tracking_System.Service.Services;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -17,6 +20,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository<>));
+builder.Services.AddScoped(typeof(IServices<>), typeof(Service<>));
+builder.Services.AddAutoMapper(typeof(MapProfile));
 
 
 builder.Services.AddDbContext<AppDbContext>(x => {

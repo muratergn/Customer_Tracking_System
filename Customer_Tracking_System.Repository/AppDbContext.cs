@@ -1,4 +1,5 @@
 ﻿using Customer_Tracking_System.Core;
+using Customer_Tracking_System.Core.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
