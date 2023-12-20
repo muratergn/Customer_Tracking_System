@@ -9,7 +9,7 @@ namespace Customer_Tracking_System.Core.DTOs
 {
     public class CustomResponseDto<T>
     {
-        public T Data { get; set; }
+        public T? Data { get; set; }
         [JsonIgnore]
         public int StatusCode { get; set; }
         public List<string> Errors { get; set; }
@@ -44,8 +44,6 @@ namespace Customer_Tracking_System.Core.DTOs
             };
         }
 
-
-
         public static CustomResponseDto<T> CreateSuccess(int statusCode)
         {
             return new CustomResponseDto<T>
@@ -55,8 +53,6 @@ namespace Customer_Tracking_System.Core.DTOs
                 Errors = null
             };
         }
-
-
 
         public static CustomResponseDto<T> CreateFail(int statusCode, List<string> errors)
         {
@@ -68,8 +64,6 @@ namespace Customer_Tracking_System.Core.DTOs
             };
         }
 
-
-
         public static CustomResponseDto<T> CreateFail(int statusCode, string error)
         {
             return new CustomResponseDto<T>
@@ -79,8 +73,6 @@ namespace Customer_Tracking_System.Core.DTOs
                 Errors = new List<string> { error }
             };
         }
-
-
 
     }
 }

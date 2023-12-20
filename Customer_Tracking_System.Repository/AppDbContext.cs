@@ -16,12 +16,12 @@ namespace Customer_Tracking_System.Repository
 
         }
 
-        DbSet<Customer> Customers { get; set; }
-        DbSet<CustomerInterests> CustomerInterests { get; set; }
-        DbSet<Order> Order { get; set; }
-        DbSet<Product> Products { get; set; }
-        DbSet<ProductComment> ProductComments { get; set; }
-        DbSet<Seller> Sellers { get; set; }
-        DbSet<UserData> UserDatas { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<CustomerInterests> CustomerInterests { get; set; }
+        public DbSet<Order> Order { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<ProductComment> ProductComments { get; set; }
+        public DbSet<Seller> Sellers { get; set; }
+        public DbSet<UserData> UserDatas { get; set; }
     }
 }
