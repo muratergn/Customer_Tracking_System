@@ -32,6 +32,7 @@ namespace Customer_Tracking_System.API.Controllers
             return CreateIActionResult(await service.GetProductByIdWithProductCommentsAsync(productId));
         }
 
+        [HttpGet]
         public async Task<IActionResult> All()
         {
             var products = await service.GetAllAsync();

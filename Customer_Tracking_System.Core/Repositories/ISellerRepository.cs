@@ -1,4 +1,5 @@
-﻿using Customer_Tracking_System.Core.Models;
+﻿using Customer_Tracking_System.Core.DTOs;
+using Customer_Tracking_System.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

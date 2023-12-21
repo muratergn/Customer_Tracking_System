@@ -21,11 +21,27 @@ namespace Customer_Tracking_System.API.Controllers
             this.service = service;
         }
 
+        [HttpGet("[action]/{sellerId}")]
+        public async Task<IActionResult> GetSellerByIdWithOrder(int sellerId)
+        {
+
+            return CreateIActionResult(await service.GetSellerByIdWithOrderAsync(sellerId));
+        }
+
+        [HttpGet("[action]/{sellerId}")]
+        public async Task<IActionResult> GetSellerByIdWithProduct(int sellerId)
+        {
+
+            return CreateIActionResult(await service.GetSellerByIdWithProductAsync(sellerId));
+        }
+
+
+        [HttpGet]
         public async Task<IActionResult> All()
         {
-            var customers = await service.GetAllAsync();
-            var customerDtos = _mapper.Map<List<CustomerDto>>(customers.ToList());
-            return CreateIActionResult(CustomResponseDto<List<CustomerDto>>.Success(200, customerDtos));
+            var sellers = await service.GetAllAsync();
+            var sellerDtos = _mapper.Map<List<SellerDto>>(sellers.ToList());
+            return CreateIActionResult(CustomResponseDto<List<SellerDto>>.Success(200, sellerDtos));
         }
 
         [HttpGet("{id}")]
@@ -41,22 +57,23 @@ namespace Customer_Tracking_System.API.Controllers
         public async Task<IActionResult> Add(SellerDto sellerDto)
         {
             var seller = await service.AddAsync(_mapper.Map<Seller>(sellerDto));
+            seller.CreatedTime = DateTime.Now;
+            seller.LastLoginDate = DateTime.Now;
             var sellerDtos = _mapper.Map<SellerDto>(seller);
             return CreateIActionResult(CustomResponseDto<SellerDto>.Success(201, sellerDtos));
         }
-        /*----------------------------------------will continue-----------------------------*/
         [HttpPut]
-        public async Task<IActionResult> Update(CustomerUpdateDto customerDto)
+        public async Task<IActionResult> Update(SellerUpdateDto sellerDto)
         {
-            await service.UpdateAsync(_mapper.Map<Customer>(customerDto));
+            await service.UpdateAsync(_mapper.Map<Seller>(sellerDto));
             return CreateIActionResult(CustomResponseDto<NoContentDto>.Success(204));
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Remove(int id)
         {
-            var customer = await service.GetByIdAsync(id);
-            await service.RemoveAsync(customer);
+            var seller = await service.GetByIdAsync(id);
+            await service.RemoveAsync(seller);
             return CreateIActionResult(CustomResponseDto<NoContentDto>.Success(204));
         }
     }

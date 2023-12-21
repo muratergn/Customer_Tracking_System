@@ -25,6 +25,12 @@ namespace Customer_Tracking_System.Service.Mapping
             CreateMap<Product, ProductDto>().ReverseMap();
             CreateMap<Product, CustomerWithOrderDto>();
             CreateMap<Product, CustomerWithProductCommentDto>();
+            CreateMap<Seller, SellerDto>().ReverseMap();
+            CreateMap<Seller, CustomerWithOrderDto>();
+            CreateMap<List<Order>, CustomerWithOrderDto>();
+            CreateMap<List<Product>, SellerWithProductDto>();
+            CreateMap<SellerUpdateDto, Seller>();
+
         }
     }
 }

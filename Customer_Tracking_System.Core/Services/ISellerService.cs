@@ -11,6 +11,6 @@ namespace Customer_Tracking_System.Core.Services
     public interface ISellerService : IServices<Seller>
     {
         public Task<CustomResponseDto<List<SellerWithProductDto>>> GetSellerByIdWithProductAsync(int sellerId);
-        public Task<CustomResponseDto<List<CustomerWithOrderDto>>> GetSellerByIdWithOrderAsync(int sellerId);
+        public Task<CustomResponseDto<CustomerWithOrderDto>> GetSellerByIdWithOrderAsync(int sellerId);
     }
 }

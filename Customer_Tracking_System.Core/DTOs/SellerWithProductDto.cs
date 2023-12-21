@@ -9,6 +9,6 @@ namespace Customer_Tracking_System.Core.DTOs
 {
     public class SellerWithProductDto
     {
-        public ProductDto product { get; set; }
+        public List<ProductDto> product { get; set; }
     }
 }

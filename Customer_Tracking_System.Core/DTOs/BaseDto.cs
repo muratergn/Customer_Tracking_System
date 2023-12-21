@@ -8,7 +8,7 @@ namespace Customer_Tracking_System.Core.DTOs
 {
     public abstract class BaseDto
     {
-        public int Id { get; set; }
+        public string UserName { get; set; }
         public string Email { get; set; }
     }
 }

@@ -17,7 +17,9 @@ namespace Customer_Tracking_System.Repository.Repositories
 
         public async Task<List<Order>> GetSellerByIdWithOrderAsync(int sellerId)
         {
-            return await _context.Order.Where(ci => ci.SellerId == sellerId).ToListAsync();
+            return await _context.Order
+            .Where(o => o.SellerId == sellerId)
+            .ToListAsync();
         }
 
         public async Task<List<Product>> GetSellerByIdWithProductAsync(int sellerId)

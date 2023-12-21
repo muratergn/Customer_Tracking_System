@@ -24,30 +24,30 @@ namespace Customer_Tracking_System.Service.Services
             _mapper = mapper;
         }
 
-        public async Task<CustomResponseDto<List<CustomerWithOrderDto>>> GetSellerByIdWithOrderAsync(int sellerId)
+        public async Task<CustomResponseDto<CustomerWithOrderDto>> GetSellerByIdWithOrderAsync(int sellerId)
         {
             var Order = await _sellerRepository.GetSellerByIdWithOrderAsync(sellerId);
-            var OrderList = _mapper.Map<List<CustomerWithOrderDto>>(Order);
+            var OrderList = _mapper.Map<CustomerWithOrderDto>(Order);
 
             int statusCode = 200;
 
             if (OrderList == null)
                 statusCode = 204;
 
-            return CustomResponseDto<List<CustomerWithOrderDto>>.Success(statusCode, OrderList);
+            return CustomResponseDto<CustomerWithOrderDto>.Success(statusCode, OrderList);
         }
 
-        public async Task<CustomResponseDto<List<SellerWithProductDto>>> GetSellerByIdWithProductAsync(int sellerId)
+        public async Task<CustomResponseDto<SellerWithProductDto>> GetSellerByIdWithProductAsync(int sellerId)
         {
             var Order = await _sellerRepository.GetSellerByIdWithProductAsync(sellerId);
-            var OrderList = _mapper.Map<List<SellerWithProductDto>>(Order);
+            var OrderList = _mapper.Map<SellerWithProductDto>(Order);
 
             int statusCode = 200;
 
             if (OrderList == null)
                 statusCode = 204;
 
-            return CustomResponseDto<List<SellerWithProductDto>>.Success(statusCode, OrderList);
+            return CustomResponseDto<SellerWithProductDto>.Success(statusCode, OrderList);
         }
     }
 }
