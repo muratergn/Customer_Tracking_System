@@ -24,43 +24,43 @@ namespace Customer_Tracking_System.Service.Services
             _mapper = mapper;
         }
 
-        public async Task<CustomResponseDto<List<CustomerWithInterestDto>>> GetCustomerByIdWithInterestsAsync(int customerId)
+        public async Task<CustomResponseDto<CustomerWithInterestDto>> GetCustomerByIdWithInterestsAsync(int customerId)
         {
             var Interest = await _customerRepository.GetCustomerByIdWithInterestsAsync(customerId);
-            var InterestList = _mapper.Map<List<CustomerWithInterestDto>>(Interest);
+            var InterestList = _mapper.Map<CustomerWithInterestDto>(Interest);
 
             int statusCode = 200;
 
             if (InterestList == null)
                 statusCode = 204;
 
-            return CustomResponseDto<List<CustomerWithInterestDto>>.Success(statusCode, InterestList);
+            return CustomResponseDto<CustomerWithInterestDto>.Success(statusCode, InterestList);
         }
 
-        public async Task<CustomResponseDto<List<CustomerWithOrderDto>>> GetCustomerByIdWithOrderAsync(int customerId)
+        public async Task<CustomResponseDto<CustomerWithOrderDto>> GetCustomerByIdWithOrderAsync(int customerId)
         {
             var Order = await _customerRepository.GetCustomerByIdWithOrderAsync(customerId);
-            var OrderList = _mapper.Map<List<CustomerWithOrderDto>>(Order);
+            var OrderList = _mapper.Map<CustomerWithOrderDto>(Order);
 
             int statusCode = 200;
 
             if (OrderList == null)
                 statusCode = 204;
 
-            return CustomResponseDto<List<CustomerWithOrderDto>>.Success(statusCode, OrderList);
+            return CustomResponseDto<CustomerWithOrderDto>.Success(statusCode, OrderList);
         }
 
-        public async Task<CustomResponseDto<List<CustomerWithProductCommentDto>>> GetCustomerByIdWithProductCommentsAsync(int customerId)
+        public async Task<CustomResponseDto<CustomerWithProductCommentDto>> GetCustomerByIdWithProductCommentsAsync(int customerId)
         {
             var Comments = await _customerRepository.GetCustomerByIdWithProductCommentsAsync(customerId);
-            var CommentList = _mapper.Map<List<CustomerWithProductCommentDto>>(Comments);
+            var CommentList = _mapper.Map<CustomerWithProductCommentDto>(Comments);
 
             int statusCode = 200;
 
             if (CommentList == null)
                 statusCode = 204;
 
-            return CustomResponseDto<List<CustomerWithProductCommentDto>>.Success(statusCode, CommentList);
+            return CustomResponseDto<CustomerWithProductCommentDto>.Success(statusCode, CommentList);
         }
     }
 }

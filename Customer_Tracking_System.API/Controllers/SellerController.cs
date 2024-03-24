@@ -5,6 +5,7 @@ using Customer_Tracking_System.Core.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Customer_Tracking_System.Core.Models;
+using Customer_Tracking_System.API.Filters;
 
 namespace Customer_Tracking_System.API.Controllers
 {
@@ -44,6 +45,7 @@ namespace Customer_Tracking_System.API.Controllers
             return CreateIActionResult(CustomResponseDto<List<SellerDto>>.Success(200, sellerDtos));
         }
 
+        [ServiceFilter(typeof(NotFoundFilterUser<Seller>))]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {

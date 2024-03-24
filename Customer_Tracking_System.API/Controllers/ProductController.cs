@@ -4,9 +4,12 @@ using Customer_Tracking_System.Core;
 using Customer_Tracking_System.Core.Models;
 using Customer_Tracking_System.Core.DTOs;
 using Microsoft.AspNetCore.Mvc;
+using Customer_Tracking_System.API.Filters;
 
 namespace Customer_Tracking_System.API.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class ProductController :  CustomBaseController
     {
         private readonly IMapper _mapper;
@@ -40,6 +43,7 @@ namespace Customer_Tracking_System.API.Controllers
             return CreateIActionResult(CustomResponseDto<List<ProductDto>>.Success(200, productDtos));
         }
 
+        [ServiceFilter(typeof(NotFoundFilterProduct<Product>))]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {

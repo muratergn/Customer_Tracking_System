@@ -18,12 +18,16 @@ namespace Customer_Tracking_System.Repository.Repositories
 
         public async Task<List<Order>> GetProductByIdWithOrderAsync(int productId)
         {
-            return await _context.Order.Where(ci => ci.ProductId == productId).ToListAsync();
+            return await _context.Order
+            .Where(o => o.ProductId == productId)
+            .ToListAsync();
         }
 
         public async Task<List<ProductComment>> GetProductByIdWithProductCommentsAsync(int productId)
         {
-            return await _context.ProductComments.Where(ci => ci.ProductId == productId).ToListAsync();
+            return await _context.ProductComments
+            .Where(o => o.ProductId == productId)
+            .ToListAsync();
         }
     }
 }

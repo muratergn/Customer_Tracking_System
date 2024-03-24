@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Customer_Tracking_System.Service\Customer_Tracking_System.Service.csproj" />
+  </ItemGroup>
+
 </Project>

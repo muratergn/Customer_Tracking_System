@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Customer_Tracking_System.API.Filters;
 using Customer_Tracking_System.Core;
 using Customer_Tracking_System.Core.DTOs;
 using Customer_Tracking_System.Core.Models;
@@ -35,6 +36,13 @@ namespace Customer_Tracking_System.API.Controllers
             return CreateIActionResult(await service.GetCustomerByIdWithOrderAsync(customerId));
         }
 
+        [HttpGet("[action]/{customerId}")]
+        public async Task<IActionResult> GetCustomerByIdWithProductComment(int customerId)
+        {
+
+            return CreateIActionResult(await service.GetCustomerByIdWithProductCommentsAsync(customerId));
+        }
+
         [HttpGet]
         public async Task<IActionResult> All() 
         {
@@ -43,6 +51,7 @@ namespace Customer_Tracking_System.API.Controllers
             return CreateIActionResult(CustomResponseDto<List<CustomerDto>>.Success(200, customerDtos));
         }
 
+        [ServiceFilter(typeof(NotFoundFilterUser<Customer>))]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {

@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Customer_Tracking_System.Core.Services
 {
-    public interface ICustomerService : IServices<Customer>
+    public interface ICustomerService : IService<Customer>
     {
-        public Task<CustomResponseDto<List<CustomerWithInterestDto>>> GetCustomerByIdWithInterestsAsync(int customerId);
-        public Task<CustomResponseDto<List<CustomerWithProductCommentDto>>> GetCustomerByIdWithProductCommentsAsync(int customerId);
-        public Task<CustomResponseDto<List<CustomerWithOrderDto>>> GetCustomerByIdWithOrderAsync(int customerId);
+        public Task<CustomResponseDto<CustomerWithInterestDto>> GetCustomerByIdWithInterestsAsync(int customerId);
+        public Task<CustomResponseDto<CustomerWithProductCommentDto>> GetCustomerByIdWithProductCommentsAsync(int customerId);
+        public Task<CustomResponseDto<CustomerWithOrderDto>> GetCustomerByIdWithOrderAsync(int customerId);
     }
 }

@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Customer_Tracking_System.Core.Services
 {
-    public interface IProductService : IServices<Product>
+    public interface IProductService : IService<Product>
     {
-        public Task<CustomResponseDto<List<CustomerWithProductCommentDto>>> GetProductByIdWithProductCommentsAsync(int productId);
-        public Task<CustomResponseDto<List<CustomerWithOrderDto>>> GetProductByIdWithOrderAsync(int productId);
+        public Task<CustomResponseDto<CustomerWithProductCommentDto>> GetProductByIdWithProductCommentsAsync(int productId);
+        public Task<CustomResponseDto<CustomerWithOrderDto>> GetProductByIdWithOrderAsync(int productId);
     }
 }

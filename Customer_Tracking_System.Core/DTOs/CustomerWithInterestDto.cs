@@ -9,6 +9,6 @@ namespace Customer_Tracking_System.Core.DTOs
 {
     public class CustomerWithInterestDto
     {
-        public CustomerInterestsDto Interests { get; set; }
+        public List<CustomerInterestsDto> Interests { get; set; }
     }
 }

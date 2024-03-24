@@ -25,30 +25,30 @@ namespace Customer_Tracking_System.Service.Services
             _mapper = mapper;
         }
 
-        public async Task<CustomResponseDto<List<CustomerWithOrderDto>>> GetProductByIdWithOrderAsync(int productId)
+        public async Task<CustomResponseDto<CustomerWithOrderDto>> GetProductByIdWithOrderAsync(int productId)
         {
             var Order = await _productRepository.GetProductByIdWithOrderAsync(productId);
-            var OrderList = _mapper.Map<List<CustomerWithOrderDto>>(Order);
+            var OrderList = _mapper.Map<CustomerWithOrderDto>(Order);
 
             int statusCode = 200;
 
             if (OrderList == null)
                 statusCode = 204;
 
-            return CustomResponseDto<List<CustomerWithOrderDto>>.Success(statusCode, OrderList);
+            return CustomResponseDto<CustomerWithOrderDto>.Success(statusCode, OrderList);
         }
 
-        public async Task<CustomResponseDto<List<CustomerWithProductCommentDto>>> GetProductByIdWithProductCommentsAsync(int productId)
+        public async Task<CustomResponseDto<CustomerWithProductCommentDto>> GetProductByIdWithProductCommentsAsync(int productId)
         {
             var Comments = await _productRepository.GetProductByIdWithProductCommentsAsync(productId);
-            var CommentList = _mapper.Map<List<CustomerWithProductCommentDto>>(Comments);
+            var CommentList = _mapper.Map<CustomerWithProductCommentDto>(Comments);
 
             int statusCode = 200;
 
             if (CommentList == null)
                 statusCode = 204;
 
-            return CustomResponseDto<List<CustomerWithProductCommentDto>>.Success(statusCode, CommentList);
+            return CustomResponseDto<CustomerWithProductCommentDto>.Success(statusCode, CommentList);
         }
     }
 }

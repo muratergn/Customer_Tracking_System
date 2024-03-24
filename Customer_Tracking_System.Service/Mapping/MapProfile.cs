@@ -29,6 +29,9 @@ namespace Customer_Tracking_System.Service.Mapping
             CreateMap<Seller, CustomerWithOrderDto>();
             CreateMap<List<Order>, CustomerWithOrderDto>();
             CreateMap<List<Product>, SellerWithProductDto>();
+            CreateMap<List<CustomerInterests>, CustomerWithInterestDto>();
+            CreateMap<List<Order>, CustomerWithOrderDto>();
+            CreateMap<List<ProductComment>, CustomerWithProductCommentDto>();
             CreateMap<SellerUpdateDto, Seller>();
 
         }
